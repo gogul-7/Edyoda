@@ -13,3 +13,11 @@ body {
   margin-right: 50px;
   margin-top: 10px;
 }
+
+@media screen and (max-width: 900px) {
+  .homePage {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+  }
+}
