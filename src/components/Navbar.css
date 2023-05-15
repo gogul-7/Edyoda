@@ -1,0 +1,90 @@
+.container {
+  width: 100%;
+  display: flex;
+  float: left;
+  align-items: center;
+}
+.logo {
+  font-size: 32px;
+  background-image: linear-gradient(90.72deg, #0096ff 42.18%, #0048ff 93.77%);
+  background-size: 100%;
+  background-repeat: repeat;
+  position: relative;
+  font-weight: 900;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+.joinBtn {
+  width: 100px;
+  border-radius: 52px;
+  height: 30px;
+  background: linear-gradient(266.79deg, #0048ff 4.63%, #0096ff 100%);
+  border: 0;
+  color: white;
+  font-weight: 600;
+  font-family: inherit;
+  transition: all 0.3s ease 0s;
+}
+.joinBtn:hover {
+  cursor: pointer;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+.menuBtn {
+  border: 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.menuBtn:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
+.first_section {
+  position: relative;
+  left: 90px;
+}
+.second_section {
+  position: relative;
+  left: 150px;
+  gap: 40px;
+  display: flex;
+}
+.dropdown {
+  border: 0px;
+}
+.dropList {
+  display: grid;
+  visibility: hidden;
+}
+.dropList2 {
+  display: grid;
+  visibility: visible;
+  background: white;
+  padding: 10px;
+}
+.third_section {
+  position: absolute;
+  right: 90px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.third_section2 {
+  position: absolute;
+  right: 3px;
+  display: grid;
+  height: 27px;
+  gap: 15px;
+}
+.listItem {
+  margin-left: 2px;
+}
+.listItem:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
+  transition: all 0.1s ease 0s;
+}

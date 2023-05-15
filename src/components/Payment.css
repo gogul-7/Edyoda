@@ -1,0 +1,169 @@
+.main_body {
+  width: 100%;
+  height: 95%;
+  background-color: white;
+  margin-top: 24px;
+}
+.first_part {
+  display: flex;
+  width: 100%;
+  height: 75px;
+  justify-content: space-evenly;
+}
+.second_part {
+  text-align: center;
+  margin: 20px;
+}
+.number1 {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  margin-bottom: -10px;
+  display: flex;
+  background: #0096ff;
+  color: white;
+  border-radius: 50%;
+  justify-content: center;
+  font-size: 20px;
+  align-items: center;
+}
+.number2 {
+  width: 30px;
+  height: 30px;
+  margin-left: 18px;
+  margin-bottom: -10px;
+  display: flex;
+  background: #0096ff;
+  color: white;
+  border-radius: 50%;
+  justify-content: center;
+  font-size: 20px;
+  align-items: center;
+}
+input[type="radio"] {
+  display: none;
+}
+.selectBox input[type="radio"]:checked ~ label::after {
+  color: aqua;
+}
+.selectBox {
+  border: 1px solid;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 16px;
+  font-weight: 500;
+}
+
+/* style the label when its corresponding radio button is checked */
+.selectBox::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.selectBox:hover::before {
+  border-color: #666;
+}
+
+input[type="radio"]:checked + .selectBox::before {
+  border-color: #ffffff;
+  background-color: #09ab4a;
+}
+input[type="radio"]:checked + label {
+  background-color: #09ab4a45;
+  border: 2px solid #09ab4a;
+}
+input[type="radio"]#first:checked + .selectBox::before {
+  background-color: #ccc;
+  border: 2px solid #ffffff;
+}
+input[type="radio"]#first:disabled + label {
+  border-color: #888888;
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.offerType1 {
+  display: flex;
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 71px;
+  font-size: 12px;
+  align-items: center;
+  height: 13px;
+  border-radius: 2px;
+  color: white;
+  justify-content: center;
+  width: 105px;
+  background-color: #ff6a00;
+}
+.offerType2 {
+  display: flex;
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 71px;
+  font-size: 12px;
+  align-items: center;
+  height: 13px;
+  border-radius: 2px;
+  color: white;
+  justify-content: center;
+  width: 105px;
+  background-color: #09ab4a;
+}
+.third_part {
+  margin-top: -14px;
+  line-height: 0px;
+}
+.sub_third_part {
+  justify-content: space-between;
+  display: flex;
+  margin: 30px;
+  align-items: center;
+}
+.sub_third_part2 {
+  display: flex;
+  margin: 30px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.cancelBtn {
+  width: 175px;
+  height: 50px;
+  background: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  border: 2px solid #ff5c00;
+  transition: all 0.3s ease 0s;
+}
+.cancelBtn:hover {
+  color: white;
+  background: #ff5c00;
+  cursor: pointer;
+}
+.proceedBtn {
+  width: 175px;
+  height: 50px;
+  background: #09ab4a;
+  color: white;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  border: 2px solid #09ab4a;
+  transition: all 0.3s ease 0s;
+}
+.proceedBtn:hover {
+  border: 2px solid #09ab4a;
+  background: none;
+  color: black;
+  cursor: pointer;
+}
