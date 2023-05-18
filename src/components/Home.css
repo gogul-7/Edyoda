@@ -23,6 +23,7 @@ li {
   display: flex;
   align-items: center;
   width: 40%;
+  justify-content: center;
 }
 .unorderedList {
   margin-left: -43px;

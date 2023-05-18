@@ -1,13 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Payment.css";
 import Pay from "../images/Razorpay Icon.png";
+import { Icon } from "@iconify/react";
 
 function Payment() {
   const [price, setPrice] = useState("0");
+  const [totalPrice, setTotalprice] = useState("0");
+  const [offer, setOffer] = useState("0");
+  const [selectedOption, setSelectedopotion] = useState(false);
+  const formatOffer = new Intl.NumberFormat("en-US");
 
-  const hanldeChange = (event) => {
-    setPrice(event.target.value);
+  const handleChange = (event) => {
+    setTotalprice(event.target.value);
+    const givenPrice = event.target.value.replace(",", "");
+    const offerPrice = givenPrice * (99 / 100);
+    setOffer(offerPrice);
+    setPrice(givenPrice - offerPrice);
+    setSelectedopotion(event.target.value);
   };
+
+  useEffect((event) => {
+    setSelectedopotion("18,500");
+    handleChange({ target: { value: "18,500" } });
+  }, []);
 
   return (
     <div className="main_body">
@@ -22,7 +37,7 @@ function Payment() {
         </div>
       </div>
       <div className="second_part">
-        <p style={{ fontSize: "20px", fontWeight: "500", marginTop: "40px" }}>
+        <p style={{ fontSize: "20px", fontWeight: "500", marginTop: "30px" }}>
           Select Your Subscription Plan
         </p>
         <form>
@@ -44,9 +59,10 @@ function Payment() {
             <input
               type="radio"
               id="second"
-              value={179}
+              value={"18,500"}
               name="subscription"
-              onChange={hanldeChange}
+              checked={selectedOption === "18,500"}
+              onChange={handleChange}
             ></input>
             <label className="selectBox" for="second">
               <div className="offerType2">
@@ -57,9 +73,10 @@ function Payment() {
             <input
               type="radio"
               id="third"
-              value={149}
+              value={"10,000"}
+              checked={selectedOption === "10,000"}
               name="subscription"
-              onChange={hanldeChange}
+              onChange={handleChange}
             ></input>
             <label className="selectBox" for="third">
               6 Month Subscription
@@ -67,9 +84,10 @@ function Payment() {
             <input
               type="radio"
               id="fourth"
-              value={99}
+              value={"5,000"}
+              checked={selectedOption === "5,000"}
               name="subscription"
-              onChange={hanldeChange}
+              onChange={handleChange}
             ></input>
             <label className="selectBox" for="fourth">
               3 Month Subscription
@@ -80,21 +98,64 @@ function Payment() {
       <div className="third_part">
         <div className="sub_third_part">
           <p>Subscription Fee</p>
-          <p>₹{price}</p>
+          <p>₹{totalPrice}</p>
+        </div>
+        <div className="offer_part">
+          <div className="offerBox">
+            <div style={{ width: "70%", height: "100%", marginTop: "-3px" }}>
+              <span style={{ fontSize: "15px" }}>Limited time offer</span>
+              <p
+                style={{
+                  fontSize: "10px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                {" "}
+                <Icon
+                  icon="mdi:av-timer"
+                  color="#ff2f00"
+                  width="23"
+                  height="23"
+                />
+                Offer Vaid till 25th May 2023
+              </p>
+            </div>
+            <div
+              style={{ position: "relative", width: "40%", marginTop: "-5px" }}
+            >
+              <span
+                style={{
+                  color: "black",
+                  display: "flex",
+                  float: "right",
+                  fontSize: "14px",
+                }}
+              >
+                {"-" + formatOffer.format(offer)}
+              </span>
+            </div>
+          </div>
         </div>
         <div className="sub_third_part">
           <p>
             <span style={{ fontWeight: "500" }}>Total</span>
             {"("}Incl. of 18% GST{")"}
           </p>
-          <p style={{ fontSize: "25px", fontWeight: "500" }}>₹{price}</p>
+          <p style={{ fontSize: "25px", fontWeight: "500" }}>
+            ₹{Math.round(price + price * (18 / 100))}
+          </p>
         </div>
         <div className="sub_third_part2">
           <button className="cancelBtn">CANCEL</button>
           <button className="proceedBtn">PROCEED TO PAY</button>
         </div>
-        <div className="sub_third_part">
-          <img src={Pay} alt="noImg" style={{ width: "100px" }}></img>
+        <div className="sub_third_part" style={{ padding: "8px" }}>
+          <img
+            src={Pay}
+            alt="noImg"
+            style={{ width: "90px", height: "43px" }}
+          ></img>
         </div>
       </div>
     </div>
